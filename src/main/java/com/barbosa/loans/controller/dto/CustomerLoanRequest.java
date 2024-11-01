@@ -1,5 +1,7 @@
 package com.barbosa.loans.controller.dto;
 
+import com.barbosa.loans.domain.Customer;
+
 public record CustomerLoanRequest(
         Integer age,
         String cpf,
@@ -7,4 +9,7 @@ public record CustomerLoanRequest(
         Double income,
         String location
 ) {
+    public Customer toCustomer() {
+        return new Customer(age, cpf, name, income, location);
+    }
 }
